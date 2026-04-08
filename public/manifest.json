@@ -1,9 +1,17 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "qwik-project-name",
-  "short_name": "Welcome to Qwik",
+  "name": "ExtremeDev SpA — Consultoría Tecnológica",
+  "short_name": "ExtremeDev",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#fff",
-  "description": "A Qwik project app."
+  "background_color": "#0a0a0a",
+  "theme_color": "#e31b23",
+  "description": "Consultora tecnológica chilena especializada en automatización IA, desarrollo cloud y soluciones digitales.",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
