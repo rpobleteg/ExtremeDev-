@@ -49,7 +49,7 @@ const services = [
     tag: "MVP EXPRESS",
     title: "Producto Mínimo Viable en 2–4 Semanas",
     description:
-      "Validamos tu idea con un producto funcional en semanas. Frontend, backend, deploy listo y feedback real de usuarios.",
+      "Convertimos tu idea en una solución lista para mostrar, probar con clientes y tomar decisiones rápidas sin perder meses en desarrollo.",
     features: [
       "Prototipo funcional completo",
       "Deploy en la nube listo para producción",

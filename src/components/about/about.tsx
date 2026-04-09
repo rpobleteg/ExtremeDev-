@@ -45,9 +45,9 @@ export const About = component$(() => {
               inteligencia artificial y automatización de procesos.
             </p>
             <p class={styles.text}>
-              Nuestro enfoque: código limpio, arquitectura sólida (Hexagonal, DDD, SOLID,
-              Microservicios) y despliegue profesional en la nube con pipelines CI/CD
-              automatizados. Cada proyecto incluye documentación completa y transparente.
+              Nuestro enfoque es simple: crear soluciones confiables, fáciles de mantener
+              y preparadas para crecer con tu negocio. Trabajamos con orden, comunicación
+              clara y entregas transparentes para que tengas visibilidad en cada etapa del proyecto.
             </p>
 
             <div class={styles.info}>
