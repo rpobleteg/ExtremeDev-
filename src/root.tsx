@@ -22,6 +22,18 @@ export default component$(() => {
             href={`${import.meta.env.BASE_URL}manifest.json`}
           />
         )}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18076908325"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18076908325');
+          `}
+        />
         <RouterHead />
       </head>
       <body lang="es">
