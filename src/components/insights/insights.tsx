@@ -7,6 +7,7 @@ const articles = [
     title: "\"Quiero una app tipo Uber + IA\" — ¿Y ahora qué?",
     excerpt:
       "Si no puedes definir bien tu idea, no es tu culpa. Te mostramos el flujo que usamos para pasar de la confusión a una solución real: empatizar, idear, prototipar, probar y lanzar.",
+    previewImage: "/post-problema-solucion.svg",
     image: "/post-afiche-metodologia.svg",
     date: "14 Abr 2026",
     content: [
@@ -122,7 +123,7 @@ export const Insights = component$(() => {
               onClick$={() => (openArticle.value = i)}
             >
               <img
-                src={article.image}
+                src={article.previewImage}
                 alt={article.title}
                 class={styles.cardImage}
                 width={600}
@@ -163,13 +164,15 @@ export const Insights = component$(() => {
               ✕
             </button>
 
-            <img
-              src={articles[openArticle.value].image}
-              alt={articles[openArticle.value].title}
-              class={styles.modalImage}
-              width={800}
-              height={450}
-            />
+            <div class={styles.modalMedia}>
+              <img
+                src={articles[openArticle.value].image}
+                alt={articles[openArticle.value].title}
+                class={styles.modalImage}
+                width={1080}
+                height={1350}
+              />
+            </div>
 
             <div class={styles.modalBody}>
               <span class={styles.cardTag}>
