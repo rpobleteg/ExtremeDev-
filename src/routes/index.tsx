@@ -9,6 +9,7 @@ import { CtaBanner } from "~/components/cta-banner/cta-banner";
 import { Contact } from "~/components/contact/contact";
 import { Footer } from "~/components/footer/footer";
 import { PolygonBg } from "~/components/polygon-bg/polygon-bg";
+import { Insights } from "~/components/insights/insights";
 
 export default component$(() => {
   return (
@@ -20,6 +21,7 @@ export default component$(() => {
         <Services />
         <CtaBanner />
         <Projects />
+        <Insights />
         <About />
         <Contact />
       </main>

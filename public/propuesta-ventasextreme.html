@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VentasExtreme — Propuesta Comercial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-black: #0a0a0a;
+      --color-dark: #111111;
+      --color-dark-surface: #1a1a1a;
+      --color-dark-border: #2a2a2a;
+      --color-red: #e31b23;
+      --color-red-hover: #ff2d36;
+      --color-white: #ffffff;
+      --color-gray-100: #f5f5f5;
+      --color-gray-300: #cccccc;
+      --color-gray-500: #888888;
+      --color-gray-700: #444444;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--color-black);
+      color: var(--color-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ===== PAGE STRUCTURE ===== */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 48px 52px;
+      background: var(--color-black);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(227, 27, 35, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ===== COVER PAGE ===== */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .cover-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 80px;
+    }
+
+    .cover-logo img {
+      width: 44px;
+      height: 44px;
+    }
+
+    .cover-logo-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .cover-logo-accent {
+      color: var(--color-red);
+    }
+
+    .cover-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      background: rgba(227, 27, 35, 0.1);
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
+    .cover h1 {
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .cover h1 .accent { color: var(--color-red); }
+
+    .cover-subtitle {
+      font-size: 1.2rem;
+      color: var(--color-gray-300);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 60px;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-dark-border);
+    }
+
+    .cover-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .cover-meta-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-gray-500);
+    }
+
+    .cover-meta-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-white);
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 0.9375rem;
+      color: var(--color-gray-300);
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    /* ===== PROBLEM SECTION ===== */
+    .problems {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .problem-card {
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .problem-icon {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .problem-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .problem-desc {
+      font-size: 0.8125rem;
+      color: var(--color-gray-300);
+      line-height: 1.6;
+    }
+
+    /* ===== SOLUTION SECTION ===== */
+    .solution-block {
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .solution-block h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .solution-block h3 .icon {
+      font-size: 1.25rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8125rem;
+      color: var(--color-gray-300);
+    }
+
+    .feature-list li .check {
+      color: var(--color-red);
+      font-weight: 700;
+      font-size: 0.875rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== PLANS ===== */
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .plan {
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .plan.recommended {
+      border-color: var(--color-red);
+      box-shadow: 0 0 30px rgba(227, 27, 35, 0.12);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -1px;
+      right: 20px;
+      background: var(--color-red);
+      color: white;
+      font-size: 0.5625rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .plan-name {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-gray-500);
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .plan-price .currency {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-gray-500);
+    }
+
+    .plan-period {
+      font-size: 0.75rem;
+      color: var(--color-gray-500);
+      margin-bottom: 20px;
+    }
+
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .plan-features li {
+      font-size: 0.75rem;
+      color: var(--color-gray-300);
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
+
+    .plan-features li .check {
+      color: var(--color-red);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ===== OFFER BANNER ===== */
+    .offer {
+      background: linear-gradient(135deg, rgba(227, 27, 35, 0.12) 0%, rgba(227, 27, 35, 0.04) 100%);
+      border: 1px solid rgba(227, 27, 35, 0.3);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+
+    .offer h3 {
+      font-size: 1.125rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--color-white);
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .offer-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .offer-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .offer-item-title {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .offer-item-desc {
+      font-size: 0.75rem;
+      color: var(--color-gray-300);
+      line-height: 1.5;
+    }
+
+    .offer-note {
+      font-size: 0.75rem;
+      color: var(--color-gray-500);
+      font-style: italic;
+      padding-top: 12px;
+      border-top: 1px solid rgba(227, 27, 35, 0.15);
+    }
+
+    /* ===== COMPATIBILITY ===== */
+    .compat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .compat-card {
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .compat-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .compat-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .compat-desc {
+      font-size: 0.75rem;
+      color: var(--color-gray-300);
+      line-height: 1.5;
+    }
+
+    /* ===== NEXT STEPS ===== */
+    .steps {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .step {
+      flex: 1;
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-red);
+      color: white;
+      font-size: 0.8125rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step-desc {
+      font-size: 0.75rem;
+      color: var(--color-gray-300);
+      line-height: 1.5;
+    }
+
+    /* ===== CONTACT FOOTER ===== */
+    .contact-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-dark-border);
+    }
+
+    .contact-footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-footer-brand img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .contact-footer-brand span {
+      font-size: 0.9375rem;
+      font-weight: 700;
+    }
+
+    .contact-footer-info {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--color-gray-500);
+      line-height: 1.6;
+    }
+
+    .contact-footer-info a {
+      color: var(--color-red);
+      text-decoration: none;
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      height: 1px;
+      background: var(--color-dark-border);
+      margin: 32px 0;
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: var(--color-black); }
+      .page { page-break-after: always; margin: 0; box-shadow: none; }
+    }
+
+    /* ===== SCREEN SHADOW ===== */
+    @media screen {
+      .page { box-shadow: 0 0 60px rgba(0,0,0,0.5); margin: 20px auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PAGE 1: COVER                                           -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="page cover">
+    <div class="cover-logo">
+      <img src="logo.png" alt="ExtremeDev" />
+      <span class="cover-logo-text">Extreme<span class="cover-logo-accent">Dev</span></span>
+    </div>
+
+    <span class="cover-badge">PROPUESTA COMERCIAL</span>
+
+    <h1>
+      Ventas<span class="accent">Extreme</span>
+    </h1>
+
+    <p class="cover-subtitle">
+      Sistema de punto de venta e inventario inteligente.
+      Simple de usar, potente en información.
+      Todo lo que necesitas para entender y hacer crecer tu negocio.
+    </p>
+
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Producto</span>
+        <span class="cover-meta-value">VentasExtreme SaaS</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Preparado por</span>
+        <span class="cover-meta-value">ExtremeDev SpA</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Fecha</span>
+        <span class="cover-meta-value">Abril 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Ubicación</span>
+        <span class="cover-meta-value">Valparaíso, Chile</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PAGE 2: PROBLEMA + SOLUCIÓN                             -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <span class="section-label">El Problema</span>
+    <h2 class="section-title">Lo que tu sistema actual no te dice</h2>
+    <p class="section-subtitle">
+      Muchos puntos de venta solo registran ventas, pero no te dan la información
+      que realmente necesitas para tomar decisiones y ganar más.
+    </p>
+
+    <div class="problems">
+      <div class="problem-card">
+        <div class="problem-icon">📉</div>
+        <div class="problem-title">Sin análisis de ventas</div>
+        <div class="problem-desc">No sabes qué producto se vende más, cuál menos, ni qué día vendes mejor.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">💸</div>
+        <div class="problem-title">Sin cálculo de ganancias</div>
+        <div class="problem-desc">No puedes ver la utilidad real de cada producto ni cuánto estás ganando al mes.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⚠️</div>
+        <div class="problem-title">Errores al cambiar precios</div>
+        <div class="problem-desc">Al modificar un precio, el inventario se desconfigura y pierdes el control del stock.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔍</div>
+        <div class="problem-title">Solo captura códigos</div>
+        <div class="problem-desc">El sistema lee el código del producto pero no te entrega información útil sobre las ventas.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <span class="section-label">La Solución</span>
+    <h2 class="section-title">VentasExtreme: vende más, con más información</h2>
+    <p class="section-subtitle">
+      Un sistema moderno que funciona con tu equipo actual y te muestra
+      todo lo que necesitas saber de tu negocio, en tiempo real.
+    </p>
+
+    <div class="solution-block">
+      <h3><span class="icon">🛒</span> Ventas y operación diaria</h3>
+      <ul class="feature-list">
+        <li><span class="check">✓</span> Registro de ventas rápido con lector de códigos</li>
+        <li><span class="check">✓</span> Emisión de boletas y tickets de venta</li>
+        <li><span class="check">✓</span> Gestión completa de productos e inventario</li>
+        <li><span class="check">✓</span> Búsqueda instantánea por nombre o código</li>
+      </ul>
+    </div>
+
+    <div class="solution-block">
+      <h3><span class="icon">📊</span> Información clave para tu negocio</h3>
+      <ul class="feature-list">
+        <li><span class="check">✓</span> Productos más y menos vendidos</li>
+        <li><span class="check">✓</span> Reportes de ventas por día, semana y mes</li>
+        <li><span class="check">✓</span> Cálculo automático de margen y utilidad real</li>
+        <li><span class="check">✓</span> Control de stock actualizado en tiempo real</li>
+        <li><span class="check">✓</span> Precio de compra y venta separados correctamente</li>
+        <li><span class="check">✓</span> Alertas cuando un producto está por agotarse</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PAGE 3: PLANES + OFERTA                                 -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <span class="section-label">Planes</span>
+    <h2 class="section-title">Elige el plan que mejor se adapte a tu negocio</h2>
+    <p class="section-subtitle">
+      Sin letra chica. Todos los planes incluyen instalación, soporte y actualizaciones.
+    </p>
+
+    <div class="plans">
+      <!-- BASIC -->
+      <div class="plan">
+        <div class="plan-name">Básico</div>
+        <div class="plan-price"><span class="currency">$</span>19.990</div>
+        <div class="plan-period">CLP / mes</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Punto de venta (POS)</li>
+          <li><span class="check">✓</span> Inventario básico</li>
+          <li><span class="check">✓</span> Registro de productos con código de barras</li>
+          <li><span class="check">✓</span> Reporte de ventas del día</li>
+          <li><span class="check">✓</span> Emisión de tickets</li>
+          <li><span class="check">✓</span> 1 usuario</li>
+          <li><span class="check">✓</span> Soporte por correo</li>
+        </ul>
+      </div>
+
+      <!-- PRO -->
+      <div class="plan recommended">
+        <div class="plan-badge">RECOMENDADO</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><span class="currency">$</span>34.990</div>
+        <div class="plan-period">CLP / mes</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Todo lo del plan Básico</li>
+          <li><span class="check">✓</span> Productos más y menos vendidos</li>
+          <li><span class="check">✓</span> Cálculo de margen y utilidad real</li>
+          <li><span class="check">✓</span> Reportes por día, semana y mes</li>
+          <li><span class="check">✓</span> Alertas de stock bajo</li>
+          <li><span class="check">✓</span> Hasta 3 usuarios</li>
+          <li><span class="check">✓</span> Soporte prioritario</li>
+        </ul>
+      </div>
+
+      <!-- BUSINESS -->
+      <div class="plan">
+        <div class="plan-name">Business</div>
+        <div class="plan-price"><span class="currency">$</span>59.990</div>
+        <div class="plan-period">CLP / mes</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Todo lo del plan Pro</li>
+          <li><span class="check">✓</span> Multi-sucursal</li>
+          <li><span class="check">✓</span> Dashboard avanzado con gráficos</li>
+          <li><span class="check">✓</span> Exportación de reportes (Excel / PDF)</li>
+          <li><span class="check">✓</span> Usuarios ilimitados</li>
+          <li><span class="check">✓</span> Integraciones personalizadas</li>
+          <li><span class="check">✓</span> Soporte dedicado</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- OFERTA -->
+    <div class="offer">
+      <h3>🎁 Oferta de lanzamiento</h3>
+      <div class="offer-grid">
+        <div class="offer-item">
+          <span class="offer-icon">🆓</span>
+          <div>
+            <span class="offer-item-title">Instalación gratis</span>
+            <span class="offer-item-desc">Nos encargamos de dejar todo configurado y funcionando sin costo adicional.</span>
+          </div>
+        </div>
+        <div class="offer-item">
+          <span class="offer-icon">🗓️</span>
+          <div>
+            <span class="offer-item-title">Primer mes gratis</span>
+            <span class="offer-item-desc">Empiezas a pagar recién a partir del segundo mes de uso.</span>
+          </div>
+        </div>
+        <div class="offer-item">
+          <span class="offer-icon">📦</span>
+          <div>
+            <span class="offer-item-title">Carga de productos incluida</span>
+            <span class="offer-item-desc">Ingresamos tu catálogo completo para que arranques de inmediato.</span>
+          </div>
+        </div>
+      </div>
+      <div class="offer-note">
+        *Oferta válida con permanencia mínima de 3 meses. No requiere compra de hardware adicional.
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- COMPATIBILIDAD -->
+    <span class="section-label">Compatibilidad</span>
+    <h2 class="section-title">Funciona con tu equipo actual</h2>
+    <p class="section-subtitle">
+      No necesitas comprar computadores ni equipos nuevos. VentasExtreme se adapta a lo que ya tienes.
+    </p>
+
+    <div class="compat-grid">
+      <div class="compat-card">
+        <div class="compat-icon">🔫</div>
+        <div class="compat-title">Lector de códigos</div>
+        <div class="compat-desc">Compatible con cualquier lector USB estándar. Funciona de inmediato, sin configuración.</div>
+      </div>
+      <div class="compat-card">
+        <div class="compat-icon">🖨️</div>
+        <div class="compat-title">Impresora térmica</div>
+        <div class="compat-desc">Imprime tickets directamente desde el sistema. Compatible con impresoras USB y de red.</div>
+      </div>
+      <div class="compat-card">
+        <div class="compat-icon">💻</div>
+        <div class="compat-title">Tu computador</div>
+        <div class="compat-desc">Solo necesitas un PC con Windows y conexión a internet. Sin requisitos especiales.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PAGE 4: PRÓXIMOS PASOS + CONTACTO                       -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <span class="section-label">Próximos Pasos</span>
+    <h2 class="section-title">¿Cómo empezamos?</h2>
+    <p class="section-subtitle">
+      En pocos días puedes tener VentasExtreme funcionando en tu negocio.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-title">Revisamos tu equipo</div>
+        <div class="step-desc">Verificamos tu impresora, lector y computador para asegurar compatibilidad total.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-title">Configuramos todo</div>
+        <div class="step-desc">Instalamos el sistema, cargamos tus productos y dejamos todo listo para operar.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-title">Empiezas a vender</div>
+        <div class="step-desc">Usas el sistema gratis el primer mes. Desde el segundo mes eliges tu plan.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <span class="section-label">¿Qué necesitamos de ti?</span>
+    <h2 class="section-title" style="margin-bottom: 24px;">Información para comenzar</h2>
+
+    <div class="solution-block" style="margin-bottom: 40px;">
+      <ul class="feature-list">
+        <li><span class="check">→</span> Marca y modelo de tu impresora de tickets</li>
+        <li><span class="check">→</span> Tipo de conexión de la impresora (USB o red)</li>
+        <li><span class="check">→</span> Marca o tipo de lector de código de barras</li>
+        <li><span class="check">→</span> Sistema operativo de tu computador (ej: Windows 10)</li>
+        <li><span class="check">→</span> Cantidad aproximada de productos en tu catálogo</li>
+        <li><span class="check">→</span> Si tienes conexión a internet estable</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <span class="section-label">Contacto</span>
+    <h2 class="section-title" style="margin-bottom: 32px;">¿Listo para empezar?</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 60px;">
+      <div class="compat-card">
+        <div class="compat-icon">✉️</div>
+        <div class="compat-title">Email</div>
+        <div class="compat-desc">contacto@extremedev.cl</div>
+      </div>
+      <div class="compat-card">
+        <div class="compat-icon">💼</div>
+        <div class="compat-title">LinkedIn</div>
+        <div class="compat-desc">Ricardo Poblete</div>
+      </div>
+      <div class="compat-card">
+        <div class="compat-icon">🌐</div>
+        <div class="compat-title">Web</div>
+        <div class="compat-desc">extremedev.cl</div>
+      </div>
+    </div>
+
+    <div class="contact-footer">
+      <div class="contact-footer-brand">
+        <img src="logo.png" alt="ExtremeDev" />
+        <span>Extreme<span style="color: var(--color-red);">Dev</span> SpA</span>
+      </div>
+      <div class="contact-footer-info">
+        Valparaíso, Chile · Abril 2026<br />
+        <a href="mailto:contacto@extremedev.cl">contacto@extremedev.cl</a> · <a href="https://extremedev.cl">extremedev.cl</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

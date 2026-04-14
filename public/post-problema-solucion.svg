@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#111111"/>
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e31b23"/>
+      <stop offset="100%" style="stop-color:#ff2d36"/>
+    </linearGradient>
+    <linearGradient id="redGradV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e31b23"/>
+      <stop offset="100%" style="stop-color:#b8151b"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#141414"/>
+    </linearGradient>
+    <!-- Glow filter -->
+    <filter id="redGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <!-- Subtle noise texture -->
+    <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="0.5" fill="#ffffff" opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgGrad)"/>
+  <rect width="1080" height="1080" fill="url(#dots)"/>
+
+  <!-- Decorative polygon shapes (brand identity) -->
+  <polygon points="0,0 180,0 0,180" fill="#e31b23" opacity="0.06"/>
+  <polygon points="1080,1080 900,1080 1080,900" fill="#e31b23" opacity="0.06"/>
+  <polygon points="1080,0 1080,120 960,0" fill="#e31b23" opacity="0.04"/>
+  <polygon points="0,1080 0,960 120,1080" fill="#e31b23" opacity="0.04"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="540" y1="0" x2="540" y2="1080" stroke="#2a2a2a" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="540" x2="1080" y2="540" stroke="#2a2a2a" stroke-width="0.5" opacity="0.0"/>
+
+  <!-- ===================== TOP SECTION: THE PROBLEM ===================== -->
+
+  <!-- Section label: PROBLEMA -->
+  <rect x="40" y="36" width="140" height="32" rx="16" fill="#e31b23" opacity="0.15"/>
+  <text x="110" y="57" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#e31b23" text-anchor="middle" letter-spacing="2">PROBLEMA</text>
+
+  <!-- Main question -->
+  <text x="540" y="120" font-family="Inter, Segoe UI, sans-serif" font-size="34" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">
+    "Quiero hacer una app tipo
+  </text>
+  <text x="540" y="165" font-family="Inter, Segoe UI, sans-serif" font-size="34" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">
+    <tspan fill="#e31b23">Uber</tspan> + <tspan fill="#e31b23">IA</tspan>"
+  </text>
+
+  <!-- Confused person icon (simplified) -->
+  <g transform="translate(540, 265)">
+    <!-- Head -->
+    <circle cx="0" cy="-30" r="28" fill="none" stroke="#888888" stroke-width="2.5"/>
+    <!-- Eyes -->
+    <circle cx="-10" cy="-35" r="2.5" fill="#888888"/>
+    <circle cx="10" cy="-35" r="2.5" fill="#888888"/>
+    <!-- Confused mouth -->
+    <path d="M-8,-20 Q-4,-17 0,-22 Q4,-17 8,-20" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round"/>
+    <!-- Body -->
+    <line x1="0" y1="0" x2="0" y2="45" stroke="#888888" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Arms raised in confusion -->
+    <line x1="0" y1="15" x2="-30" y2="-5" stroke="#888888" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="0" y1="15" x2="30" y2="-5" stroke="#888888" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Question marks around -->
+    <text x="-55" y="-40" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#e31b23" opacity="0.7">?</text>
+    <text x="45" y="-45" font-family="Inter, sans-serif" font-size="20" font-weight="700" fill="#e31b23" opacity="0.5">?</text>
+    <text x="-70" y="0" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#e31b23" opacity="0.4">?</text>
+    <text x="60" y="-10" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="#e31b23" opacity="0.6">?</text>
+  </g>
+
+  <!-- Question bubbles -->
+  <g>
+    <!-- Bubble 1 -->
+    <rect x="80" y="220" width="220" height="44" rx="22" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+    <text x="190" y="247" font-family="Inter, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">¿Cómo empiezo?</text>
+    
+    <!-- Bubble 2 -->
+    <rect x="780" y="220" width="220" height="44" rx="22" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+    <text x="890" y="247" font-family="Inter, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">¿Necesito realmente IA?</text>
+    
+    <!-- Bubble 3 -->
+    <rect x="100" y="280" width="240" height="44" rx="22" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+    <text x="220" y="307" font-family="Inter, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">¿Qué es realmente "tipo Uber"?</text>
+    
+    <!-- Bubble 4 -->
+    <rect x="760" y="280" width="250" height="44" rx="22" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+    <text x="885" y="307" font-family="Inter, sans-serif" font-size="13" fill="#cccccc" text-anchor="middle">¿Al menos sé que necesito una app?</text>
+  </g>
+
+  <!-- Reassurance text -->
+  <text x="540" y="380" font-family="Inter, sans-serif" font-size="15" fill="#888888" text-anchor="middle" font-style="italic">
+    Si no puedes definir esto, no es tu culpa.
+  </text>
+  <text x="540" y="402" font-family="Inter, sans-serif" font-size="15" fill="#888888" text-anchor="middle" font-style="italic">
+    Significa que necesitas ayuda para entender tu problema.
+  </text>
+
+  <!-- ===================== DIVIDER ===================== -->
+  <line x1="200" y1="440" x2="880" y2="440" stroke="#2a2a2a" stroke-width="1"/>
+  <!-- Arrow down -->
+  <g transform="translate(540, 440)">
+    <circle cx="0" cy="0" r="22" fill="#e31b23"/>
+    <polygon points="-8,-6 8,-6 0,8" fill="#ffffff"/>
+  </g>
+
+  <!-- ===================== BOTTOM SECTION: THE SOLUTION ===================== -->
+
+  <!-- Section label: SOLUCIÓN -->
+  <rect x="40" y="476" width="150" height="32" rx="16" fill="#e31b23" opacity="0.15"/>
+  <text x="115" y="497" font-family="Inter, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#e31b23" text-anchor="middle" letter-spacing="2">SOLUCIÓN</text>
+
+  <text x="540" y="534" font-family="Inter, Segoe UI, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">
+    Nuestro flujo para encontrar <tspan fill="#e31b23">tu solución real</tspan>
+  </text>
+
+  <!-- ===== FLOW: 5 Steps ===== -->
+  <!-- Step positions: evenly across width -->
+  
+  <!-- Step 1: Empatizar -->
+  <g transform="translate(130, 610)">
+    <rect x="-75" y="-20" width="150" height="150" rx="16" fill="url(#cardGrad)" stroke="#e31b23" stroke-width="1.5"/>
+    <!-- Icon: Heart -->
+    <g transform="translate(0, 25)">
+      <path d="M0,12 C0,12 -20,-8 -20,-16 C-20,-24 -10,-28 0,-18 C10,-28 20,-24 20,-16 C20,-8 0,12 0,12Z" fill="none" stroke="#e31b23" stroke-width="2"/>
+    </g>
+    <text x="0" y="68" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">EMPATIZAR</text>
+    <text x="0" y="86" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">Entender el</text>
+    <text x="0" y="100" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">problema real</text>
+    <!-- Step number -->
+    <circle cx="-60" cy="-5" r="12" fill="#e31b23"/>
+    <text x="-60" y="0" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <g transform="translate(230, 675)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="#e31b23" stroke-width="1.5" opacity="0.6"/>
+    <polygon points="30,-4 38,0 30,4" fill="#e31b23" opacity="0.6"/>
+  </g>
+
+  <!-- Step 2: Idear -->
+  <g transform="translate(345, 610)">
+    <rect x="-75" y="-20" width="150" height="150" rx="16" fill="url(#cardGrad)" stroke="#2a2a2a" stroke-width="1"/>
+    <!-- Icon: Lightbulb -->
+    <g transform="translate(0, 22)">
+      <path d="M-10,6 L-8,14 L8,14 L10,6" fill="none" stroke="#e31b23" stroke-width="2" stroke-linecap="round"/>
+      <path d="M0,-18 C-14,-18 -16,-2 -10,6 L10,6 C16,-2 14,-18 0,-18Z" fill="none" stroke="#e31b23" stroke-width="2"/>
+      <line x1="-5" y1="10" x2="5" y2="10" stroke="#e31b23" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <text x="0" y="68" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">IDEAR</text>
+    <text x="0" y="86" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">Explorar</text>
+    <text x="0" y="100" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">soluciones</text>
+    <circle cx="-60" cy="-5" r="12" fill="#e31b23"/>
+    <text x="-60" y="0" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <g transform="translate(445, 675)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="#e31b23" stroke-width="1.5" opacity="0.6"/>
+    <polygon points="30,-4 38,0 30,4" fill="#e31b23" opacity="0.6"/>
+  </g>
+
+  <!-- Step 3: Prototipar -->
+  <g transform="translate(560, 610)">
+    <rect x="-75" y="-20" width="150" height="150" rx="16" fill="url(#cardGrad)" stroke="#2a2a2a" stroke-width="1"/>
+    <!-- Icon: Layers/Prototype -->
+    <g transform="translate(0, 22)">
+      <rect x="-14" y="-14" width="28" height="20" rx="3" fill="none" stroke="#e31b23" stroke-width="2"/>
+      <rect x="-10" y="-8" width="28" height="20" rx="3" fill="none" stroke="#e31b23" stroke-width="1.5" opacity="0.6"/>
+      <rect x="-6" y="-2" width="28" height="20" rx="3" fill="none" stroke="#e31b23" stroke-width="1" opacity="0.3"/>
+    </g>
+    <text x="0" y="68" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">PROTOTIPAR</text>
+    <text x="0" y="86" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">Construir</text>
+    <text x="0" y="100" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">rápido y tangible</text>
+    <circle cx="-60" cy="-5" r="12" fill="#e31b23"/>
+    <text x="-60" y="0" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  </g>
+
+  <!-- Arrow 3→4 -->
+  <g transform="translate(660, 675)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="#e31b23" stroke-width="1.5" opacity="0.6"/>
+    <polygon points="30,-4 38,0 30,4" fill="#e31b23" opacity="0.6"/>
+  </g>
+
+  <!-- Step 4: Probar -->
+  <g transform="translate(775, 610)">
+    <rect x="-75" y="-20" width="150" height="150" rx="16" fill="url(#cardGrad)" stroke="#2a2a2a" stroke-width="1"/>
+    <!-- Icon: Checkmark in circle -->
+    <g transform="translate(0, 22)">
+      <circle cx="0" cy="0" r="16" fill="none" stroke="#e31b23" stroke-width="2"/>
+      <polyline points="-8,0 -3,6 10,-8" fill="none" stroke="#e31b23" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="0" y="68" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">PROBAR</text>
+    <text x="0" y="86" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">Validar con</text>
+    <text x="0" y="100" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">usuarios reales</text>
+    <circle cx="-60" cy="-5" r="12" fill="#e31b23"/>
+    <text x="-60" y="0" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  </g>
+
+  <!-- Arrow 4→5 -->
+  <g transform="translate(875, 675)">
+    <line x1="0" y1="0" x2="30" y2="0" stroke="#e31b23" stroke-width="1.5" opacity="0.6"/>
+    <polygon points="30,-4 38,0 30,4" fill="#e31b23" opacity="0.6"/>
+  </g>
+
+  <!-- Step 5: Usar -->
+  <g transform="translate(980, 610)">
+    <rect x="-75" y="-20" width="150" height="150" rx="16" fill="url(#cardGrad)" stroke="#22c55e" stroke-width="1.5"/>
+    <!-- Icon: Rocket -->
+    <g transform="translate(0, 20)">
+      <path d="M0,-18 C-6,-10 -8,0 -6,10 L6,10 C8,0 6,-10 0,-18Z" fill="none" stroke="#22c55e" stroke-width="2"/>
+      <path d="M-6,10 L-10,16 L-4,14Z" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+      <path d="M6,10 L10,16 L4,14Z" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="3" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+    </g>
+    <text x="0" y="68" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#22c55e" text-anchor="middle">¡USAR!</text>
+    <text x="0" y="86" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">Lanzar al</text>
+    <text x="0" y="100" font-family="Inter, sans-serif" font-size="10" fill="#888888" text-anchor="middle">mundo real</text>
+    <circle cx="-60" cy="-5" r="12" fill="#22c55e"/>
+    <text x="-60" y="0" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+  </g>
+
+  <!-- ===================== CTA / BRANDING ===================== -->
+
+  <!-- Separator -->
+  <line x1="200" y1="800" x2="880" y2="800" stroke="#2a2a2a" stroke-width="1"/>
+
+  <!-- Bottom CTA card -->
+  <rect x="190" y="830" width="700" height="130" rx="20" fill="#1a1a1a" stroke="#e31b23" stroke-width="1" opacity="0.9"/>
+  
+  <!-- Red accent glow behind card -->
+  <rect x="200" y="840" width="680" height="110" rx="16" fill="#e31b23" opacity="0.03"/>
+  
+  <!-- ExtremeDev logo text -->
+  <text x="540" y="872" font-family="Inter, Segoe UI, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">
+    Extreme<tspan fill="#e31b23">Dev</tspan>
+  </text>
+  
+  <text x="540" y="900" font-family="Inter, sans-serif" font-size="14" fill="#cccccc" text-anchor="middle">
+    Utilizamos este método para ayudarte a encontrar tu solución.
+  </text>
+
+  <!-- URL button -->
+  <rect x="390" y="916" width="300" height="36" rx="18" fill="url(#redGrad)"/>
+  <text x="540" y="939" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">
+    extremedev.cl
+  </text>
+
+  <!-- Bottom tagline -->
+  <text x="540" y="1005" font-family="Inter, sans-serif" font-size="12" fill="#444444" text-anchor="middle" letter-spacing="1">
+    AUTOMATIZACIÓN IA · DESARROLLO CLOUD · CONSULTORÍA TECNOLÓGICA
+  </text>
+
+  <!-- Small location text -->
+  <text x="540" y="1030" font-family="Inter, sans-serif" font-size="11" fill="#444444" text-anchor="middle">
+    📍 Valparaíso, Chile
+  </text>
+
+  <!-- Corner accent lines -->
+  <line x1="40" y1="40" x2="40" y2="80" stroke="#e31b23" stroke-width="2" opacity="0.4"/>
+  <line x1="40" y1="40" x2="80" y2="40" stroke="#e31b23" stroke-width="2" opacity="0.4"/>
+  <line x1="1040" y1="1040" x2="1040" y2="1000" stroke="#e31b23" stroke-width="2" opacity="0.4"/>
+  <line x1="1040" y1="1040" x2="1000" y2="1040" stroke="#e31b23" stroke-width="2" opacity="0.4"/>
+</svg>

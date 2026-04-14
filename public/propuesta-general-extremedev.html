@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExtremeDev — Propuesta General de Servicios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-black: #0a0a0a;
+      --color-dark: #111111;
+      --color-dark-surface: #1a1a1a;
+      --color-dark-border: #2a2a2a;
+      --color-red: #e31b23;
+      --color-red-hover: #ff2d36;
+      --color-white: #ffffff;
+      --color-gray-100: #f5f5f5;
+      --color-gray-300: #cccccc;
+      --color-gray-500: #888888;
+      --color-gray-700: #444444;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--color-black);
+      color: var(--color-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 48px 52px;
+      background: var(--color-black);
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .page::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(227, 27, 35, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ===== COVER ===== */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .cover-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 80px;
+    }
+
+    .cover-logo img { width: 44px; height: 44px; }
+
+    .cover-logo-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-accent { color: var(--color-red); }
+
+    .cover-badge {
+      display: inline-flex;
+      padding: 6px 16px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      background: rgba(227, 27, 35, 0.1);
+      border-radius: 4px;
+      margin-bottom: 24px;
+    }
+
+    .cover h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      max-width: 560px;
+    }
+
+    .accent { color: var(--color-red); }
+
+    .cover-subtitle {
+      font-size: 1.15rem;
+      color: var(--color-gray-300);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: 60px;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-dark-border);
+    }
+
+    .cover-meta-item { display: flex; flex-direction: column; gap: 4px; }
+
+    .cover-meta-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-gray-500);
+    }
+
+    .cover-meta-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 0.9375rem;
+      color: var(--color-gray-300);
+      line-height: 1.7;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--color-dark-border);
+      margin: 32px 0;
+    }
+
+    /* ===== ABOUT BLOCK ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .about-text {
+      font-size: 0.9375rem;
+      color: var(--color-gray-300);
+      line-height: 1.75;
+    }
+
+    .about-text strong { color: var(--color-white); }
+
+    .info-row {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gray-500);
+    }
+
+    .info-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+    }
+
+    /* ===== SERVICES ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .service-card {
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .service-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .service-icon { font-size: 1.5rem; }
+
+    .service-tag {
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-red);
+      padding: 3px 8px;
+      background: rgba(227, 27, 35, 0.1);
+      border-radius: 4px;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-size: 0.8125rem;
+      color: var(--color-gray-300);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .service-features li {
+      font-size: 0.75rem;
+      color: var(--color-gray-300);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .check {
+      color: var(--color-red);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .service-result {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-red);
+      padding-top: 10px;
+      border-top: 1px solid var(--color-dark-border);
+    }
+
+    /* ===== WHY US ===== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .why-card {
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .why-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .why-desc {
+      font-size: 0.8125rem;
+      color: var(--color-gray-300);
+      line-height: 1.6;
+    }
+
+    /* ===== STEPS ===== */
+    .steps {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .step {
+      flex: 1;
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 10px;
+      padding: 24px 20px;
+      position: relative;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--color-red);
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .step-title {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 0.8125rem;
+      color: var(--color-gray-300);
+      line-height: 1.6;
+    }
+
+    /* ===== TEAM ===== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .team-card {
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .team-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--color-dark-border);
+    }
+
+    .team-name {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .team-role {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-red);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .team-bio {
+      font-size: 0.8125rem;
+      color: var(--color-gray-300);
+      line-height: 1.6;
+    }
+
+    /* ===== TECH STACK ===== */
+    .stack-section {
+      margin-bottom: 32px;
+    }
+
+    .stack-group {
+      margin-bottom: 14px;
+    }
+
+    .stack-category {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-gray-500);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .stack-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .stack-item {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 100px;
+      color: var(--color-gray-300);
+    }
+
+    /* ===== CTA BANNER ===== */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(227, 27, 35, 0.12) 0%, rgba(227, 27, 35, 0.04) 100%);
+      border: 1px solid rgba(227, 27, 35, 0.3);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .cta-banner h3 {
+      font-size: 1.375rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .cta-banner p {
+      font-size: 0.9375rem;
+      color: var(--color-gray-300);
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      background: var(--color-red);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    /* ===== CONTACT CARDS ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .contact-card {
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .contact-icon { font-size: 1.5rem; margin-bottom: 8px; }
+    .contact-title { font-size: 0.875rem; font-weight: 700; margin-bottom: 4px; }
+    .contact-value { font-size: 0.8125rem; color: var(--color-gray-300); }
+
+    /* ===== FOOTER ===== */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-dark-border);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img { width: 28px; height: 28px; }
+    .footer-brand span { font-size: 0.9375rem; font-weight: 700; }
+
+    .footer-info {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--color-gray-500);
+      line-height: 1.6;
+    }
+
+    .footer-info a {
+      color: var(--color-red);
+      text-decoration: none;
+    }
+
+    @media print {
+      body { background: var(--color-black); }
+      .page { page-break-after: always; margin: 0; box-shadow: none; }
+    }
+
+    @media screen {
+      .page { box-shadow: 0 0 60px rgba(0,0,0,0.5); margin: 20px auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PAGE 1: PORTADA                                         -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="page cover">
+    <div class="cover-logo">
+      <img src="logo.png" alt="ExtremeDev" />
+      <span class="cover-logo-text">Extreme<span class="logo-accent">Dev</span></span>
+    </div>
+
+    <span class="cover-badge">PROPUESTA GENERAL DE SERVICIOS</span>
+
+    <h1>
+      Tecnología que impulsa <span class="accent">tu negocio</span>
+    </h1>
+
+    <p class="cover-subtitle">
+      Automatización inteligente, desarrollo de software, soluciones en la nube e
+      inteligencia artificial. Todo lo que necesitas para operar mejor,
+      crecer más rápido y tomar decisiones con información real.
+    </p>
+
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Empresa</span>
+        <span class="cover-meta-value">ExtremeDev SpA</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Ubicación</span>
+        <span class="cover-meta-value">Valparaíso, Chile</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Certificación</span>
+        <span class="cover-meta-value">AWS Cloud Practitioner</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Fecha</span>
+        <span class="cover-meta-value">Abril 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PAGE 2: QUIÉNES SOMOS + SERVICIOS                       -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <span class="section-label">Quiénes Somos</span>
+    <h2 class="section-title">Consultora tecnológica con foco en resultados</h2>
+
+    <div class="about-grid">
+      <p class="about-text">
+        <strong>ExtremeDev SpA</strong> es una consultora tecnológica chilena constituida
+        en Valparaíso, especializada en desarrollo de software, consultoría en la nube,
+        inteligencia artificial y automatización de procesos empresariales.
+      </p>
+      <p class="about-text">
+        Nuestro enfoque es simple: crear soluciones confiables, fáciles de mantener
+        y preparadas para crecer con tu negocio. Trabajamos con orden, comunicación
+        clara y entregas transparentes para que tengas visibilidad en cada etapa.
+      </p>
+    </div>
+
+    <div class="info-row">
+      <div class="info-item">
+        <span class="info-label">Experiencia</span>
+        <span class="info-value">+5 años</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Proyectos entregados</span>
+        <span class="info-value">+6 proyectos</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Sectores</span>
+        <span class="info-value">Finanzas, Gobierno, Startups</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Modalidad</span>
+        <span class="info-value">Remoto · Presencial · Híbrido</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <span class="section-label">Nuestros Servicios</span>
+    <h2 class="section-title">Soluciones que generan <span class="accent">resultados reales</span></h2>
+    <p class="section-subtitle">
+      No vendemos tecnología. Vendemos ahorro de tiempo, reducción de costos
+      y crecimiento acelerado para tu negocio.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">⚡</span>
+          <span class="service-tag">AI OPS</span>
+        </div>
+        <h3 class="service-title">Automatización Inteligente de Operaciones</h3>
+        <p class="service-desc">Automatizamos tareas repetitivas con IA, integradas a tus herramientas actuales. Menos trabajo manual, más productividad.</p>
+        <ul class="service-features">
+          <li><span class="check">✓</span> Atención automática por WhatsApp</li>
+          <li><span class="check">✓</span> Generación de reportes sin intervención</li>
+          <li><span class="check">✓</span> Seguimiento de clientes automatizado</li>
+          <li><span class="check">✓</span> Integración con tus herramientas actuales</li>
+        </ul>
+        <div class="service-result">→ Reducción de hasta 30% en trabajo manual</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">🤖</span>
+          <span class="service-tag">CHATBOTS IA</span>
+        </div>
+        <h3 class="service-title">Asistentes con Conocimiento Empresarial</h3>
+        <p class="service-desc">Chatbots entrenados con tus documentos y procesos reales. Un asistente digital que responde como tu mejor trabajador, 24/7.</p>
+        <ul class="service-features">
+          <li><span class="check">✓</span> Entrenado con datos de tu empresa</li>
+          <li><span class="check">✓</span> Integración WhatsApp y Web</li>
+          <li><span class="check">✓</span> Soporte al cliente automatizado</li>
+          <li><span class="check">✓</span> Ventas y capacitación interna</li>
+        </ul>
+        <div class="service-result">→ Atención 24/7 sin costo de personal adicional</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">📊</span>
+          <span class="service-tag">DATA SERVICE</span>
+        </div>
+        <h3 class="service-title">Datos + Decisiones como Servicio</h3>
+        <p class="service-desc">Centralizamos tus datos, creamos paneles claros y automatizamos reportes. Te mostramos exactamente dónde puedes mejorar.</p>
+        <ul class="service-features">
+          <li><span class="check">✓</span> Dashboards ejecutivos en tiempo real</li>
+          <li><span class="check">✓</span> Automatización de reportes</li>
+          <li><span class="check">✓</span> Alertas inteligentes de negocio</li>
+          <li><span class="check">✓</span> Integración con cualquier fuente de datos</li>
+        </ul>
+        <div class="service-result">→ Decisiones basadas en datos en minutos, no días</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-header">
+          <span class="service-icon">🚀</span>
+          <span class="service-tag">MVP EXPRESS</span>
+        </div>
+        <h3 class="service-title">Producto Mínimo Viable en 2–4 Semanas</h3>
+        <p class="service-desc">Convertimos tu idea en una solución funcional lista para probar con clientes reales y tomar decisiones rápidas.</p>
+        <ul class="service-features">
+          <li><span class="check">✓</span> Prototipo funcional completo</li>
+          <li><span class="check">✓</span> Listo para usar desde el día uno</li>
+          <li><span class="check">✓</span> Preparado para crecer contigo</li>
+          <li><span class="check">✓</span> Mejoras continuas basadas en feedback real</li>
+        </ul>
+        <div class="service-result">→ De idea a producto funcional en menos de 30 días</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PAGE 3: POR QUÉ ELEGIRNOS + CÓMO TRABAJAMOS            -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <span class="section-label">Por Qué Elegirnos</span>
+    <h2 class="section-title">Lo que nos diferencia</h2>
+    <p class="section-subtitle">
+      No entregamos solo código. Entregamos soluciones que funcionan, que puedes entender
+      y que están pensadas para generarte valor desde el primer día.
+    </p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">Foco en el negocio</div>
+        <div class="why-desc">Cada decisión técnica se toma pensando en el impacto real para tu operación y tus resultados.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📋</div>
+        <div class="why-title">Transparencia total</div>
+        <div class="why-desc">Sabes qué estamos haciendo, por qué, y cuándo estará listo. Sin sorpresas ni costos ocultos.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚙️</div>
+        <div class="why-title">Soluciones a medida</div>
+        <div class="why-desc">No usamos plantillas genéricas. Cada proyecto se diseña para resolver TU problema específico.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">☁️</div>
+        <div class="why-title">Infraestructura profesional</div>
+        <div class="why-desc">Tu solución queda en la nube, segura, rápida y lista para crecer cuando lo necesites.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div class="why-title">Acompañamiento real</div>
+        <div class="why-desc">No desaparecemos después de entregar. Te acompañamos hasta que el sistema funcione perfecto.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏅</div>
+        <div class="why-title">Certificación AWS</div>
+        <div class="why-desc">Equipo certificado en la nube más usada del mundo. Tu proyecto en las mejores manos.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <span class="section-label">Cómo Trabajamos</span>
+    <h2 class="section-title">Pasos para iniciar tu proyecto</h2>
+    <p class="section-subtitle">
+      Un proceso claro, ordenado y sin complicaciones.
+      Desde la primera conversación hasta la entrega final.
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-title">Conversación inicial</div>
+        <div class="step-desc">Nos cuentas tu desafío, tu negocio y qué resultados esperas. Sin costo. Sin compromiso.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-title">Propuesta a medida</div>
+        <div class="step-desc">Te presentamos una solución concreta con alcance, tiempos y costos claros. Tú decides.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-title">Desarrollo y entregas</div>
+        <div class="step-desc">Trabajamos por etapas cortas con avances visibles. Cada semana ves progreso real.</div>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-title">Revisión contigo</div>
+        <div class="step-desc">En cada etapa validamos el avance juntos. Ajustamos lo que haga falta antes de seguir.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-title">Entrega y puesta en marcha</div>
+        <div class="step-desc">Dejamos todo funcionando, documentado y listo. Te capacitamos para que puedas usarlo sin depender de nosotros.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-title">Soporte continuo</div>
+        <div class="step-desc">Seguimos disponibles para mejoras, soporte técnico y nuevas necesidades que aparezcan.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════ -->
+  <!-- PAGE 4: EQUIPO + TECH + CONTACTO                        -->
+  <!-- ════════════════════════════════════════════════════════ -->
+  <div class="page">
+    <span class="section-label">Nuestro Equipo</span>
+    <h2 class="section-title">Las personas detrás de cada proyecto</h2>
+    <p class="section-subtitle">
+      Un equipo especializado, comprometido y con experiencia real en proyectos de distinto tamaño y complejidad.
+    </p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="yo.png" alt="Ricardo Poblete" class="team-photo" />
+        <div>
+          <div class="team-name">Ricardo Poblete</div>
+          <span class="team-role">Founder & CTO</span>
+          <p class="team-bio">Desarrollador Fullstack y especialista Cloud con más de 5 años de experiencia en proyectos gubernamentales, sector financiero y startups. Certificado AWS.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="luis.jpg" alt="Luis Velásquez" class="team-photo" />
+        <div>
+          <div class="team-name">Luis Velásquez</div>
+          <span class="team-role">Data Engineer</span>
+          <p class="team-bio">Experto en gestión de datos, optimización de bases de datos y soluciones en AWS. Especialista en información empresarial y reportería avanzada.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <span class="section-label">Tecnologías</span>
+    <h2 class="section-title" style="margin-bottom: 24px;">Herramientas que utilizamos</h2>
+
+    <div class="stack-section">
+      <div class="stack-group">
+        <span class="stack-category">Backend</span>
+        <div class="stack-items">
+          <span class="stack-item">Node.js</span>
+          <span class="stack-item">NestJS</span>
+          <span class="stack-item">Python</span>
+          <span class="stack-item">FastAPI</span>
+          <span class="stack-item">Django</span>
+          <span class="stack-item">TypeScript</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <span class="stack-category">Frontend</span>
+        <div class="stack-items">
+          <span class="stack-item">React</span>
+          <span class="stack-item">Next.js</span>
+          <span class="stack-item">Vue.js 3</span>
+          <span class="stack-item">Qwik</span>
+          <span class="stack-item">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <span class="stack-category">Cloud & Infraestructura</span>
+        <div class="stack-items">
+          <span class="stack-item">AWS</span>
+          <span class="stack-item">Azure</span>
+          <span class="stack-item">GCP</span>
+          <span class="stack-item">Docker</span>
+          <span class="stack-item">Kubernetes</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <span class="stack-category">Data & IA</span>
+        <div class="stack-items">
+          <span class="stack-item">LangChain</span>
+          <span class="stack-item">Google Gemini</span>
+          <span class="stack-item">PostgreSQL</span>
+          <span class="stack-item">DynamoDB</span>
+          <span class="stack-item">PySpark</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- CTA -->
+    <div class="cta-banner">
+      <h3>¿Listo para <span class="accent">acelerar tu negocio</span>?</h3>
+      <p>Cuéntanos tu desafío y te mostramos cómo podemos resolverlo. Primera consulta sin costo.</p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-title">Email</div>
+        <div class="contact-value">contacto@extremedev.cl</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">💼</div>
+        <div class="contact-title">LinkedIn</div>
+        <div class="contact-value">Ricardo Poblete</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">🌐</div>
+        <div class="contact-title">Web</div>
+        <div class="contact-value">extremedev.cl</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div class="footer-brand">
+        <img src="logo.png" alt="ExtremeDev" />
+        <span>Extreme<span style="color: var(--color-red);">Dev</span> SpA</span>
+      </div>
+      <div class="footer-info">
+        Valparaíso, Chile · Abril 2026<br />
+        <a href="mailto:contacto@extremedev.cl">contacto@extremedev.cl</a> · <a href="https://extremedev.cl">extremedev.cl</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
