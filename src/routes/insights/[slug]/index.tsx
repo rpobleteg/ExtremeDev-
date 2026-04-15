@@ -1,10 +1,10 @@
 import { component$ } from "@builder.io/qwik";
 import { useLocation, Link } from "@builder.io/qwik-city";
-import type { DocumentHead } from "@builder.io/qwik-city";
+import type { DocumentHead, StaticGenerateHandler } from "@builder.io/qwik-city";
 import { Header } from "~/components/header/header";
 import { Footer } from "~/components/footer/footer";
 import { PolygonBg } from "~/components/polygon-bg/polygon-bg";
-import { getArticleBySlug } from "~/data/articles";
+import { getArticleBySlug, articles } from "~/data/articles";
 import styles from "./article.module.css";
 
 export default component$(() => {
@@ -111,5 +111,11 @@ export const head: DocumentHead = ({ params }) => {
         content: article?.excerpt ?? "",
       },
     ],
+  };
+};
+
+export const onStaticGenerate: StaticGenerateHandler = async () => {
+  return {
+    params: articles.map((a) => ({ slug: a.slug })),
   };
 };
