@@ -24,6 +24,7 @@ export const Header = component$(() => {
     <header class={[styles.header, isScrolled.value && styles.scrolled]}>
       <div class={`container ${styles.inner}`}>
         <a href="/" class={styles.logo} aria-label="ExtremeDev SpA — Inicio">
+          {/* eslint-disable-next-line qwik/jsx-img */}
           <img
             src="/logo.png"
             alt="ExtremeDev SpA"

@@ -4,7 +4,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import { Header } from "~/components/header/header";
 import { Footer } from "~/components/footer/footer";
 import { PolygonBg } from "~/components/polygon-bg/polygon-bg";
-import { getArticleBySlug, articles } from "~/data/articles";
+import { getArticleBySlug } from "~/data/articles";
 import styles from "./article.module.css";
 
 export default component$(() => {

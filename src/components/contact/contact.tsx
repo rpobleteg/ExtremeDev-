@@ -5,7 +5,6 @@ export const Contact = component$(() => {
   const status = useSignal<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = $(async (e: SubmitEvent) => {
-    e.preventDefault();
     const form = e.target as HTMLFormElement;
     const data = new FormData(form);
 
@@ -87,6 +86,7 @@ export const Contact = component$(() => {
           >
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_subject" value="Nuevo contacto desde ExtremeDev.cl" />
+            <input type="hidden" name="_next" value="https://extremedev.cl/" />
 
             {status.value === "sent" && (
               <div class={styles.toast}>

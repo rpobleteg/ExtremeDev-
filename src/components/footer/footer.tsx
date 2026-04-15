@@ -9,6 +9,7 @@ export const Footer = component$(() => {
       <div class={`container ${styles.inner}`}>
         <div class={styles.brand}>
           <a href="/" class={styles.logo} aria-label="ExtremeDev SpA">
+            {/* eslint-disable-next-line qwik/jsx-img */}
             <img src="/logo.png" alt="ExtremeDev" width={32} height={32} class={styles.logoImg} />
             <span class={styles.logoText}>
               Extreme<span class={styles.logoAccent}>Dev</span>
